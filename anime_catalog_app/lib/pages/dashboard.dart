@@ -1,3 +1,4 @@
+import 'package:anime_catalog_app/providers/anime_get_rank_provider%20copy.dart';
 import 'package:anime_catalog_app/providers/anime_get_romance_provider.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +9,7 @@ class Dashboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.read<AnimeGetRomanceProvider>().getRomance(context);
+    context.read<AnimeGetRankProvider>().getRomance(context);
     return Scaffold(
         appBar: AppBar(
           title: const Padding(
@@ -86,14 +87,14 @@ class WidgetAnimeRankState extends State<WidgetAnimeRank> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<AnimeGetRomanceProvider>().getRomance(context);
+      context.read<AnimeGetRankProvider>().getRomance(context);
       super.initState();
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return SliverToBoxAdapter(child: Consumer<AnimeGetRomanceProvider>(
+    return SliverToBoxAdapter(child: Consumer<AnimeGetRankProvider>(
       builder: (_, provider, __) {
         if (provider.isLoading) {
           return const Center(child: CircularProgressIndicator());
