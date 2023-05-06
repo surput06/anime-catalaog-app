@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Anime Catalog App',
         theme: ThemeData(scaffoldBackgroundColor: const Color(0XFF0C1921), appBarTheme: const AppBarTheme(backgroundColor: Colors.transparent, foregroundColor: Colors.white, shadowColor: Colors.transparent)),
-        home: const DetailAnime(),
+        home: const Dashboard(),
       ),
     );
   }

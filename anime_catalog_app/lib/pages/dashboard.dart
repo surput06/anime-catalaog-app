@@ -1,3 +1,4 @@
+import 'package:anime_catalog_app/models/anime_model.dart';
 import 'package:anime_catalog_app/providers/anime_get_rank_provider%20copy.dart';
 import 'package:anime_catalog_app/providers/anime_get_romance_provider.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -88,6 +89,7 @@ class WidgetAnimeRankState extends State<WidgetAnimeRank> {
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<AnimeGetRankProvider>().getRomance(context);
+
       super.initState();
     });
   }
@@ -104,6 +106,7 @@ class WidgetAnimeRankState extends State<WidgetAnimeRank> {
             itemCount: provider.anime.length,
             itemBuilder: (_, index, __) {
               final anime = provider.anime[index];
+
               return ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: Stack(
@@ -167,9 +170,12 @@ class WidgetAnimeRankState extends State<WidgetAnimeRank> {
                               children: [
                                 Padding(
                                   padding: const EdgeInsets.only(left: 5),
-                                  child: Text(
-                                    style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-                                    anime.title,
+                                  child: SizedBox(
+                                    width: 220,
+                                    child: Text(
+                                      style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                                      anime.title,
+                                    ),
                                   ),
                                 ),
                               ],
