@@ -99,7 +99,14 @@ class WidgetAnimeRankState extends State<WidgetAnimeRank> {
     return SliverToBoxAdapter(child: Consumer<AnimeGetRankProvider>(
       builder: (_, provider, __) {
         if (provider.isLoading) {
-          return const Center(child: CircularProgressIndicator());
+          return Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.white70,
+            ),
+            height: 350,
+            width: double.infinity,
+          );
         }
         if (provider.anime.isNotEmpty) {
           return CarouselSlider.builder(
@@ -116,6 +123,9 @@ class WidgetAnimeRankState extends State<WidgetAnimeRank> {
                       height: 350,
                       width: double.infinity,
                       fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) => Container(
+                        child: Icon(Icons.broken_image_rounded),
+                      ),
                     ),
                     Container(
                       height: 350,
