@@ -13,7 +13,7 @@ class AnimeGetRankProvider with ChangeNotifier {
   final List<AnimeModel> _anime = [];
   List<AnimeModel> get anime => _anime;
 
-  void getRomance(BuildContext context) async {
+  void getAnimeRank(BuildContext context) async {
     _isLoading = true;
     notifyListeners();
 

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:anime_catalog_app/models/anime_model.dart';
 import 'package:anime_catalog_app/repostories/anime_repostories.dart';
 import 'package:flutter/material.dart';
@@ -40,7 +42,11 @@ class AnimeGetRomanceProvider with ChangeNotifier {
     );
   }
 
-  void getRomancePaging(BuildContext context, {required int page, required PagingController pagingController}) async {
+  void getRomancePaging(
+    BuildContext context, {
+    required int page,
+    required PagingController pagingController,
+  }) async {
     final result = await _animeRepostories.getRomance(page: page);
 
     result.fold(
@@ -48,12 +54,11 @@ class AnimeGetRomanceProvider with ChangeNotifier {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text(errorMessage)),
         );
-        _isLoading = false;
-        notifyListeners();
+
         return;
       },
       (response) {
-        if (response.data.length < 20) {
+        if (response.data.length < 10) {
           pagingController.appendLastPage(response.data);
         } else {
           pagingController.appendPage(response.data, page + 1);

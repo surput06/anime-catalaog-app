@@ -1,5 +1,6 @@
 import 'package:anime_catalog_app/models/anime_model.dart';
 import 'package:anime_catalog_app/providers/anime_get_romance_provider.dart';
+import 'package:anime_catalog_app/widget/item_anime.dart';
 import 'package:flutter/material.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
@@ -8,11 +9,11 @@ class Pagination extends StatefulWidget {
   const Pagination({Key? key}) : super(key: key);
 
   @override
-  _PaginationState createState() => _PaginationState();
+  PaginationState createState() => PaginationState();
 }
 
-class _PaginationState extends State<Pagination> {
-  final PagingController<int, Anime> _pagingController = PagingController(
+class PaginationState extends State<Pagination> {
+  final PagingController<int, AnimeModel> _pagingController = PagingController(
     firstPageKey: 1,
   );
 
@@ -42,8 +43,8 @@ class _PaginationState extends State<Pagination> {
       ),
       body: PagedListView.separated(
         pagingController: _pagingController,
-        builderDelegate: PagedChildBuilderDelegate<Anime>(
-          itemBuilder: (context, anime, index) => Card(),
+        builderDelegate: PagedChildBuilderDelegate<AnimeModel>(
+          itemBuilder: (context, anime, index) => ItemAnime(anime: anime, height: 330, width: double.infinity, sbWidth: 220),
         ),
         separatorBuilder: (context, index) => Card(),
       ),

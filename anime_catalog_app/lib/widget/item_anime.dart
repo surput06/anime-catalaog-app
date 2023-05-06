@@ -1,23 +1,25 @@
 import 'package:flutter/material.dart';
-
 import '../models/anime_model.dart';
 import 'img_widget.dart';
 
 class ItemAnime extends Container {
   final AnimeModel anime;
-  ItemAnime(this.anime, {super.key});
+  final double height;
+  final double width;
+  final double sbWidth;
+  ItemAnime({required this.anime, required this.height, required this.width, required this.sbWidth, super.key});
   @override
   Widget? get child => Stack(
         children: [
           ImgWidget(
-            height: 350,
-            width: double.infinity,
+            height: height,
+            width: width,
             imgSrc: anime.image,
             fit: BoxFit.cover,
           ),
           Container(
-            height: 350,
-            width: double.infinity,
+            height: height,
+            width: width,
             decoration: const BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
@@ -69,7 +71,7 @@ class ItemAnime extends Container {
                       Padding(
                         padding: const EdgeInsets.only(left: 5),
                         child: SizedBox(
-                          width: 220,
+                          width: sbWidth,
                           child: Text(
                             style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
                             anime.title,

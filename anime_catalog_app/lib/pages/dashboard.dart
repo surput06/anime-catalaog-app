@@ -119,7 +119,12 @@ class TopAnimeWidgetState extends State<TopAnimeWidget> {
             itemBuilder: (_, index, __) {
               final anime = provider.anime[index];
 
-              return ItemAnime(anime);
+              return ItemAnime(
+                anime: anime,
+                height: 350,
+                width: double.infinity,
+                sbWidth: 220,
+              );
             },
             options: CarouselOptions(
               height: 350.0,
