@@ -38,16 +38,30 @@ class PaginationState extends State<Pagination> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Romance'),
-      ),
-      body: PagedListView.separated(
-        pagingController: _pagingController,
-        builderDelegate: PagedChildBuilderDelegate<AnimeModel>(
-          itemBuilder: (context, anime, index) => ItemAnime(anime: anime, height: 330, width: double.infinity, sbWidth: 220),
+        appBar: AppBar(
+          title: Text('Romance'),
         ),
-        separatorBuilder: (context, index) => Card(),
-      ),
-    );
+        body: PagedGridView(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+          pagingController: _pagingController,
+          builderDelegate: PagedChildBuilderDelegate<AnimeModel>(
+              itemBuilder: (context, anime, index) => Padding(
+                    padding: const EdgeInsets.all(3.0),
+                    child: ItemAnime(
+                      anime: anime,
+                      height: 300,
+                      width: double.infinity,
+                      sbWidth: 150,
+                      rank: 12,
+                    ),
+                  )),
+        ));
   }
 }
+// PagedListView.separated(
+//         pagingController: _pagingController,
+//         builderDelegate: PagedChildBuilderDelegate<AnimeModel>(
+//           itemBuilder: (context, anime, index) => ItemAnime(anime: anime, height: 330, width: double.infinity, sbWidth: 220),
+//         ),
+//         separatorBuilder: (context, index) => Card(),
+//       ),

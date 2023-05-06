@@ -7,7 +7,22 @@ class ItemAnime extends Container {
   final double height;
   final double width;
   final double sbWidth;
-  ItemAnime({required this.anime, required this.height, required this.width, required this.sbWidth, super.key});
+  final double rank;
+  ItemAnime({
+    required this.anime,
+    required this.rank,
+    required this.height,
+    required this.width,
+    required this.sbWidth,
+    super.key,
+  });
+  @override
+  Clip get clipBehavior => Clip.hardEdge;
+
+  @override
+  Decoration? get decoration => BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+      );
   @override
   Widget? get child => Stack(
         children: [
@@ -41,7 +56,7 @@ class ItemAnime extends Container {
                   borderRadius: BorderRadius.circular(10)),
               child: Padding(
                 padding: const EdgeInsets.all(10),
-                child: Center(child: Text(style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20), "#${anime.ranking.toString()}")),
+                child: Center(child: Text(style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: rank), "#${anime.ranking}")),
               ),
             ),
           ),

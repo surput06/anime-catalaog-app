@@ -122,6 +122,7 @@ class TopAnimeWidgetState extends State<TopAnimeWidget> {
               return ItemAnime(
                 anime: anime,
                 height: 350,
+                rank: 20,
                 width: double.infinity,
                 sbWidth: 220,
               );
