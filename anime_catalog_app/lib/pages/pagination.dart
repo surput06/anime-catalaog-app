@@ -42,18 +42,20 @@ class PaginationState extends State<Pagination> {
           title: Text('Romance'),
         ),
         body: PagedGridView(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            mainAxisSpacing: 30,
+            crossAxisSpacing: 10,
+            childAspectRatio: 0.7,
+          ),
           pagingController: _pagingController,
           builderDelegate: PagedChildBuilderDelegate<AnimeModel>(
-              itemBuilder: (context, anime, index) => Padding(
-                    padding: const EdgeInsets.all(3.0),
-                    child: ItemAnime(
-                      anime: anime,
-                      height: 300,
-                      width: double.infinity,
-                      sbWidth: 150,
-                      rank: 12,
-                    ),
+              itemBuilder: (context, anime, index) => ItemAnime(
+                    anime: anime,
+                    height: 350,
+                    width: double.infinity,
+                    sbWidth: 150,
+                    rank: 12,
                   )),
         ));
   }
