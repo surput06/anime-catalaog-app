@@ -1,6 +1,7 @@
 import 'package:anime_catalog_app/models/anime_model.dart';
 import 'package:anime_catalog_app/repostories/anime_repostories.dart';
 import 'package:flutter/material.dart';
+import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
 class AnimeGetRomanceProvider with ChangeNotifier {
   final AnimeRepostories _animeRepostories;
@@ -35,6 +36,29 @@ class AnimeGetRomanceProvider with ChangeNotifier {
         _isLoading = false;
         notifyListeners();
         return null;
+      },
+    );
+  }
+
+  void getRomancePaging(BuildContext context, {required int page, required PagingController pagingController}) async {
+    final result = await _animeRepostories.getRomance(page: page);
+
+    result.fold(
+      (errorMessage) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(errorMessage)),
+        );
+        _isLoading = false;
+        notifyListeners();
+        return;
+      },
+      (response) {
+        if (response.data.length < 20) {
+          pagingController.appendLastPage(response.data);
+        } else {
+          pagingController.appendPage(response.data, page + 1);
+        }
+        return;
       },
     );
   }

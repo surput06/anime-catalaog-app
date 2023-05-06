@@ -1,16 +1,19 @@
 import 'package:anime_catalog_app/models/anime_model.dart';
+import 'package:anime_catalog_app/pages/pagination.dart';
 import 'package:anime_catalog_app/providers/anime_get_rank_provider%20copy.dart';
 import 'package:anime_catalog_app/providers/anime_get_romance_provider.dart';
+import 'package:anime_catalog_app/widget/img_widget.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../widget/item_anime.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    context.read<AnimeGetRankProvider>().getRomance(context);
     return Scaffold(
         appBar: AppBar(
           title: const Padding(
@@ -47,7 +50,7 @@ class Dashboard extends StatelessWidget {
                     'Top-10 Anime'),
               ),
             ),
-            const WidgetAnimeRank(),
+            const TopAnimeWidget(),
             SliverAppBar(
               backgroundColor: Colors.transparent,
               title: const Padding(
@@ -61,7 +64,9 @@ class Dashboard extends StatelessWidget {
               ),
               actions: [
                 TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(builder: (_) => const Pagination()));
+                    },
                     child: const Padding(
                       padding: EdgeInsets.only(right: 8),
                       child: Text(
@@ -77,18 +82,18 @@ class Dashboard extends StatelessWidget {
   }
 }
 
-class WidgetAnimeRank extends StatefulWidget {
-  const WidgetAnimeRank({Key? key}) : super(key: key);
+class TopAnimeWidget extends StatefulWidget {
+  const TopAnimeWidget({Key? key}) : super(key: key);
 
   @override
-  WidgetAnimeRankState createState() => WidgetAnimeRankState();
+  TopAnimeWidgetState createState() => TopAnimeWidgetState();
 }
 
-class WidgetAnimeRankState extends State<WidgetAnimeRank> {
+class TopAnimeWidgetState extends State<TopAnimeWidget> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<AnimeGetRankProvider>().getRomance(context);
+      context.read<AnimeGetRankProvider>().getAnimeRank(context);
 
       super.initState();
     });
@@ -114,99 +119,7 @@ class WidgetAnimeRankState extends State<WidgetAnimeRank> {
             itemBuilder: (_, index, __) {
               final anime = provider.anime[index];
 
-              return ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Stack(
-                  children: [
-                    Image.network(
-                      anime.image,
-                      height: 350,
-                      width: double.infinity,
-                      fit: BoxFit.cover,
-                      errorBuilder: (context, error, stackTrace) => Container(
-                        child: Icon(Icons.broken_image_rounded),
-                      ),
-                    ),
-                    Container(
-                      height: 350,
-                      width: double.infinity,
-                      decoration: const BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [Colors.black54, Colors.black38, Colors.black54],
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 10,
-                      top: 10,
-                      child: Container(
-                        decoration: BoxDecoration(
-                            gradient: const LinearGradient(colors: [
-                              Color(0xFFB493D7),
-                              Color(0xFF8B82C1),
-                              Color(0xFF8FA4DB),
-                            ]),
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Padding(
-                          padding: const EdgeInsets.all(10),
-                          child: Center(child: Text(style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20), "#${anime.ranking.toString()}")),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                        bottom: 25,
-                        left: 15,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              height: 20,
-                              decoration: BoxDecoration(
-                                  gradient: const LinearGradient(colors: [
-                                    Color(0xFFB493D7),
-                                    Color(0xFF8B82C1),
-                                    Color(0xFF8FA4DB),
-                                  ]),
-                                  borderRadius: BorderRadius.circular(10)),
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 5),
-                                child: Center(child: Text(style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold), anime.type)),
-                              ),
-                            ),
-                            const Padding(padding: EdgeInsets.all(2)),
-                            Row(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 5),
-                                  child: SizedBox(
-                                    width: 220,
-                                    child: Text(
-                                      style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-                                      anime.title,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            const Padding(padding: EdgeInsets.all(2)),
-                            Row(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 5),
-                                  child: Text(
-                                    style: const TextStyle(color: Colors.white),
-                                    "${anime.genres[0]},${anime.genres[1]}",
-                                  ),
-                                ),
-                              ],
-                            )
-                          ],
-                        )),
-                  ],
-                ),
-              );
+              return ItemAnime(anime);
             },
             options: CarouselOptions(
               height: 350.0,
