@@ -62,7 +62,9 @@ class TopAnimeWidgetState extends State<TopAnimeWidget> {
             ),
           );
         }
-        return const Center(child: Text("not found"));
+        return const Center(
+          child: Text(style: TextStyle(color: Colors.white), 'Not found'),
+        );
       },
     ));
   }

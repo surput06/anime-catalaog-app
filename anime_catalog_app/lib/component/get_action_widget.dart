@@ -1,20 +1,21 @@
 import 'package:anime_catalog_app/widget/img_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../providers/anime_get_romance_provider.dart';
 
-class GetRomanceWidget extends StatefulWidget {
-  const GetRomanceWidget({Key? key}) : super(key: key);
+import '../providers/anime_get_action_provider.dart';
+
+class GetActionWidget extends StatefulWidget {
+  const GetActionWidget({Key? key}) : super(key: key);
 
   @override
-  _GetRomanceWidgetState createState() => _GetRomanceWidgetState();
+  _GetActionWidgetState createState() => _GetActionWidgetState();
 }
 
-class _GetRomanceWidgetState extends State<GetRomanceWidget> {
+class _GetActionWidgetState extends State<GetActionWidget> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<AnimeGetRomanceProvider>().getRomance(context);
+      context.read<AnimeGetActionProvider>().getAction(context);
 
       super.initState();
     });
@@ -25,7 +26,7 @@ class _GetRomanceWidgetState extends State<GetRomanceWidget> {
     return SliverToBoxAdapter(
       child: SizedBox(
         height: 200,
-        child: Consumer<AnimeGetRomanceProvider>(
+        child: Consumer<AnimeGetActionProvider>(
           builder: (_, provider, __) {
             if (provider.isLoading) {
               return Container(

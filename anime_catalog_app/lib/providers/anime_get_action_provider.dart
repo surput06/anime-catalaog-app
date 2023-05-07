@@ -14,7 +14,7 @@ class AnimeGetActionProvider with ChangeNotifier {
   final List<AnimeModel> _anime = [];
   List<AnimeModel> get anime => _anime;
 
-  void getRomance(BuildContext context) async {
+  void getAction(BuildContext context) async {
     _isLoading = true;
     notifyListeners();
 

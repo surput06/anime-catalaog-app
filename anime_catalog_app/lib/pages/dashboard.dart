@@ -1,4 +1,12 @@
+import 'package:anime_catalog_app/component/get_action_widget.dart';
+import 'package:anime_catalog_app/component/get_adventure_widget.dart';
+import 'package:anime_catalog_app/component/get_comedy_widget.dart';
+import 'package:anime_catalog_app/component/get_drama_widget.dart';
 import 'package:anime_catalog_app/component/get_romance_widget.dart';
+import 'package:anime_catalog_app/component/get_scifi_widget.dart';
+import 'package:anime_catalog_app/component/get_sliceoflife_widget.dart';
+import 'package:anime_catalog_app/component/get_sport_widget.dart';
+import 'package:anime_catalog_app/component/get_supernatural_widget.dart';
 import 'package:anime_catalog_app/models/anime_model.dart';
 import 'package:anime_catalog_app/pages/pagination.dart';
 import 'package:anime_catalog_app/providers/anime_get_rank_provider%20copy.dart';
@@ -57,10 +65,66 @@ class Dashboard extends StatelessWidget {
             TitleWidget(
               title: "Romance",
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (_) => Pagination()));
+                Navigator.of(context).push(MaterialPageRoute(builder: (_) => Pagination(type: typeAnime.romance)));
               },
             ),
             const GetRomanceWidget(),
+            TitleWidget(
+              title: "Action",
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (_) => Pagination(type: typeAnime.action)));
+              },
+            ),
+            const GetAdventureWidget(),
+            TitleWidget(
+              title: "Adventure",
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (_) => Pagination(type: typeAnime.adventure)));
+              },
+            ),
+            const GetAdventureWidget(),
+            TitleWidget(
+              title: "Comedy",
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (_) => Pagination(type: typeAnime.comedy)));
+              },
+            ),
+            const GetComedyWidget(),
+            TitleWidget(
+              title: "Drama",
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (_) => Pagination(type: typeAnime.drama)));
+              },
+            ),
+            const GetDramaWidget(),
+            TitleWidget(
+              title: "Sci-Fi",
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (_) => Pagination(type: typeAnime.scifi)));
+              },
+            ),
+            const GetSliceofLifeWidget(),
+            TitleWidget(
+              title: "Slice Of Life",
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (_) => Pagination(type: typeAnime.sliceoflife)));
+              },
+            ),
+            const GetSliceofLifeWidget(),
+            TitleWidget(
+              title: "Sports",
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (_) => Pagination(type: typeAnime.sport)));
+              },
+            ),
+            const GetSportWidget(),
+            TitleWidget(
+              title: "Supernatural",
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (_) => Pagination(type: typeAnime.supernatural)));
+              },
+            ),
+            const GetSupernaturalWidget(),
           ],
         ));
   }
