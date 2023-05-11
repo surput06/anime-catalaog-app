@@ -13,6 +13,8 @@ import 'package:flutter/material.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 
+import 'detail_anime.dart';
+
 enum typeAnime { rankanime, romance, action, adventure, comedy, drama, scifi, sliceoflife, sport, supernatural }
 
 class Pagination extends StatefulWidget {
@@ -147,6 +149,13 @@ class PaginationState extends State<Pagination> {
           pagingController: _pagingController,
           builderDelegate: PagedChildBuilderDelegate<AnimeModel>(
               itemBuilder: (context, anime, index) => ItemAnime(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (_) {
+                          return DetailAnime(id: anime.id);
+                        },
+                      ));
+                    },
                     anime: anime,
                     height: 350,
                     width: double.infinity,

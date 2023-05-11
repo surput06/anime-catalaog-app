@@ -1,3 +1,4 @@
+import 'package:anime_catalog_app/models/anime_detail_model.dart';
 import 'package:dartz/dartz.dart';
 import '../models/anime_model.dart';
 
@@ -12,5 +13,5 @@ abstract class AnimeRepostories {
   Future<Either<String, Anime>> getDrama({int page = 1});
   Future<Either<String, Anime>> getSupernatural({int page = 1});
   Future<Either<String, Anime>> getSports({int page = 1});
-  Future<Either<String, Anime>> getAnimeDetail({int id = 1});
+  Future<Either<String, AnimeDetail>> getAnimeDetail({String id = "1"});
 }

@@ -1,4 +1,5 @@
-import 'package:anime_catalog_app/models/anime_model.dart';
+import 'package:anime_catalog_app/models/anime_detail_model.dart';
+
 import 'package:anime_catalog_app/repostories/anime_repostories.dart';
 import 'package:flutter/material.dart';
 
@@ -7,10 +8,10 @@ class AnimeGetAnimeDetailProvider with ChangeNotifier {
 
   AnimeGetAnimeDetailProvider(this._animeRepostories);
 
-  Anime? _anime;
-  Anime? get anime => _anime;
+  AnimeDetail? _anime;
+  AnimeDetail? get anime => _anime;
 
-  void getDetail(BuildContext context, {required int id}) async {
+  void getDetail(BuildContext context, {required String id}) async {
     _anime = null;
     notifyListeners();
     final result = await _animeRepostories.getAnimeDetail(id: id);

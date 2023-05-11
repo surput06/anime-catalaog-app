@@ -8,12 +8,14 @@ class ItemAnime extends Container {
   final double width;
   final double sbWidth;
   final double rank;
+  final void Function()? onTap;
   ItemAnime({
     required this.anime,
     required this.rank,
     required this.height,
     required this.width,
     required this.sbWidth,
+    required this.onTap,
     super.key,
   });
   @override
@@ -109,6 +111,13 @@ class ItemAnime extends Container {
                   )
                 ],
               )),
+          Positioned.fill(
+              child: Material(
+            color: Colors.transparent,
+            child: InkWell(
+              onTap: onTap,
+            ),
+          ))
         ],
       );
 }

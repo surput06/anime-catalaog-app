@@ -1,4 +1,3 @@
-import 'package:anime_catalog_app/app_constant.dart';
 import 'package:anime_catalog_app/injector.dart';
 import 'package:anime_catalog_app/pages/dashboard.dart';
 
@@ -12,15 +11,14 @@ import 'package:anime_catalog_app/providers/anime_get_scifi_provider.dart';
 import 'package:anime_catalog_app/providers/anime_get_sliceoflife_provider.dart';
 import 'package:anime_catalog_app/providers/anime_get_sport_provider.dart';
 import 'package:anime_catalog_app/providers/anime_get_supernatural.dart';
-import 'package:anime_catalog_app/repostories/anime_repostories.dart';
-import 'package:anime_catalog_app/repostories/anime_repostories_impl.dart';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:dio/dio.dart';
 
 void main() {
   setup();
-  runApp(MyApp());
+
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {

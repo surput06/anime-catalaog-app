@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:anime_catalog_app/models/anime_detail_model.dart';
+
 import '../models/anime_model.dart';
 import 'anime_repostories.dart';
 import 'package:dio/dio.dart';
@@ -221,13 +223,11 @@ class AnimeRepostoriesImpl implements AnimeRepostories {
   }
 
   @override
-  Future<Either<String, Anime>> getAnimeDetail({int id = 1}) async {
+  Future<Either<String, AnimeDetail>> getAnimeDetail({String id = "1"}) async {
     try {
-      final result = await _dio.get('/anime', queryParameters: {
-        'id': id,
-      });
+      final result = await _dio.get('/anime/by-id/$id');
       if (result.statusCode == 200 && result.data != null) {
-        final model = animeFromJson(jsonEncode(result.data));
+        final model = animeDetailFromJson(jsonEncode(result.data));
         return Right(model);
       }
       throw 'Tidak dapat mendapat data';

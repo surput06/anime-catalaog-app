@@ -1,3 +1,4 @@
+import 'package:anime_catalog_app/pages/detail_anime.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 import 'package:flutter/material.dart';
@@ -44,6 +45,13 @@ class TopAnimeWidgetState extends State<TopAnimeWidget> {
               final anime = provider.anime[index];
 
               return ItemAnime(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (_) {
+                      return DetailAnime(id: anime.id);
+                    },
+                  ));
+                },
                 anime: anime,
                 height: 350,
                 rank: 20,
