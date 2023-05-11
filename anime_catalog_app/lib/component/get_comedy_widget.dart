@@ -2,16 +2,15 @@ import 'package:anime_catalog_app/providers/anime_get_comedy_provider.dart';
 import 'package:anime_catalog_app/widget/img_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../providers/anime_get_romance_provider.dart';
 
 class GetComedyWidget extends StatefulWidget {
   const GetComedyWidget({Key? key}) : super(key: key);
 
   @override
-  _GetComedyWidgetState createState() => _GetComedyWidgetState();
+  GetComedyWidgetState createState() => GetComedyWidgetState();
 }
 
-class _GetComedyWidgetState extends State<GetComedyWidget> {
+class GetComedyWidgetState extends State<GetComedyWidget> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {

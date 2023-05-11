@@ -4,13 +4,13 @@ class TitleWidget extends Container {
   final String title;
   final void Function() onPressed;
 
-  TitleWidget({required this.title, required this.onPressed});
+  TitleWidget({super.key, required this.title, required this.onPressed});
 
   @override
   Widget? get child => SliverAppBar(
         backgroundColor: Colors.transparent,
         title: Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8.0),
           child: Text(
               style: const TextStyle(
                 color: Colors.white,

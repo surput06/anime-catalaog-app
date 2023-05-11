@@ -48,7 +48,6 @@ class Dashboard extends StatelessWidget {
               ),
             ),
             const TopAnimeWidget(),
-            const GenreTagWidget(),
             const SliverAppBar(
               backgroundColor: Colors.transparent,
               title: Padding(
@@ -61,6 +60,7 @@ class Dashboard extends StatelessWidget {
                     'Genre Tag'),
               ),
             ),
+            const GenreTagWidget(),
             TitleWidget(
               title: "Romance",
               onPressed: () {

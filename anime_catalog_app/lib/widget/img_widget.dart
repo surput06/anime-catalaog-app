@@ -20,9 +20,7 @@ class ImgWidget extends StatelessWidget {
       height: height,
       width: width,
       fit: fit,
-      errorBuilder: (context, error, stackTrace) => Container(
-        child: Icon(Icons.broken_image_rounded),
-      ),
+      errorBuilder: (context, error, stackTrace) => const Icon(Icons.broken_image_rounded),
     );
   }
 }
