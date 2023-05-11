@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:anime_catalog_app/models/anime_model.dart';
 import 'package:anime_catalog_app/repostories/anime_repostories.dart';
 import 'package:flutter/material.dart';

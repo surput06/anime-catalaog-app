@@ -219,4 +219,23 @@ class AnimeRepostoriesImpl implements AnimeRepostories {
       return const Left('another error on get Sports');
     }
   }
+
+  @override
+  Future<Either<String, Anime>> getAnimeDetail({int id = 1}) async {
+    try {
+      final result = await _dio.get('/anime', queryParameters: {
+        'id': id,
+      });
+      if (result.statusCode == 200 && result.data != null) {
+        final model = animeFromJson(jsonEncode(result.data));
+        return Right(model);
+      }
+      throw 'Tidak dapat mendapat data';
+    } on DioError catch (e) {
+      if (e.response != null) {
+        return Left(e.response.toString());
+      }
+      return const Left('another error on get detail anime');
+    }
+  }
 }

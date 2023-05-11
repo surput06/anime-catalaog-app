@@ -1,11 +1,12 @@
 import 'package:anime_catalog_app/app_constant.dart';
+import 'package:anime_catalog_app/injector.dart';
 import 'package:anime_catalog_app/pages/dashboard.dart';
 
 import 'package:anime_catalog_app/providers/anime_get_action_provider.dart';
 import 'package:anime_catalog_app/providers/anime_get_adventure_provider.dart';
 import 'package:anime_catalog_app/providers/anime_get_comedy_provider.dart';
 import 'package:anime_catalog_app/providers/anime_get_drama_provider.dart';
-import 'package:anime_catalog_app/providers/anime_get_rank_provider%20copy.dart';
+import 'package:anime_catalog_app/providers/anime_get_rank_provider.dart';
 import 'package:anime_catalog_app/providers/anime_get_romance_provider.dart';
 import 'package:anime_catalog_app/providers/anime_get_scifi_provider.dart';
 import 'package:anime_catalog_app/providers/anime_get_sliceoflife_provider.dart';
@@ -18,30 +19,27 @@ import 'package:provider/provider.dart';
 import 'package:dio/dio.dart';
 
 void main() {
-  final dioOptions = BaseOptions(baseUrl: AppConstant.baseUrl, headers: {'X-RapidAPI-Key': AppConstant.apiKey});
-  final Dio dio = Dio(dioOptions);
-  final AnimeRepostories animeRepostories = AnimeRepostoriesImpl(dio);
-
-  runApp(MyApp(animeRepostories: animeRepostories));
+  setup();
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key, required this.animeRepostories});
-  final AnimeRepostories animeRepostories;
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => AnimeGetRomanceProvider(animeRepostories)),
-        ChangeNotifierProvider(create: (_) => AnimeGetRankProvider(animeRepostories)),
-        ChangeNotifierProvider(create: (_) => AnimeGetActionProvider(animeRepostories)),
-        ChangeNotifierProvider(create: (_) => AnimeGetComedyProvider(animeRepostories)),
-        ChangeNotifierProvider(create: (_) => AnimeGetDramaProvider(animeRepostories)),
-        ChangeNotifierProvider(create: (_) => AnimeGetSciFiProvider(animeRepostories)),
-        ChangeNotifierProvider(create: (_) => AnimeGetSliceofLifeProvider(animeRepostories)),
-        ChangeNotifierProvider(create: (_) => AnimeGetSportsProvider(animeRepostories)),
-        ChangeNotifierProvider(create: (_) => AnimeGetSupernaturalProvider(animeRepostories)),
-        ChangeNotifierProvider(create: (_) => AnimeGetAdventureProvider(animeRepostories)),
+        ChangeNotifierProvider(create: (_) => sl<AnimeGetRomanceProvider>()),
+        ChangeNotifierProvider(create: (_) => sl<AnimeGetRankProvider>()),
+        ChangeNotifierProvider(create: (_) => sl<AnimeGetActionProvider>()),
+        ChangeNotifierProvider(create: (_) => sl<AnimeGetComedyProvider>()),
+        ChangeNotifierProvider(create: (_) => sl<AnimeGetDramaProvider>()),
+        ChangeNotifierProvider(create: (_) => sl<AnimeGetSciFiProvider>()),
+        ChangeNotifierProvider(create: (_) => sl<AnimeGetSliceofLifeProvider>()),
+        ChangeNotifierProvider(create: (_) => sl<AnimeGetSportsProvider>()),
+        ChangeNotifierProvider(create: (_) => sl<AnimeGetSupernaturalProvider>()),
+        ChangeNotifierProvider(create: (_) => sl<AnimeGetAdventureProvider>()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

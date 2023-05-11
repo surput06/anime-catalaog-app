@@ -3,7 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../providers/anime_get_rank_provider copy.dart';
+import '../providers/anime_get_rank_provider.dart';
 import '../widget/item_anime.dart';
 
 class TopAnimeWidget extends StatefulWidget {

@@ -12,4 +12,5 @@ abstract class AnimeRepostories {
   Future<Either<String, Anime>> getDrama({int page = 1});
   Future<Either<String, Anime>> getSupernatural({int page = 1});
   Future<Either<String, Anime>> getSports({int page = 1});
+  Future<Either<String, Anime>> getAnimeDetail({int id = 1});
 }
