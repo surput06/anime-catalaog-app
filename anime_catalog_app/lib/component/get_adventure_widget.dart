@@ -2,16 +2,15 @@ import 'package:anime_catalog_app/providers/anime_get_adventure_provider.dart';
 import 'package:anime_catalog_app/widget/img_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../providers/anime_get_romance_provider.dart';
 
 class GetAdventureWidget extends StatefulWidget {
   const GetAdventureWidget({Key? key}) : super(key: key);
 
   @override
-  _GetAdventureWidgetState createState() => _GetAdventureWidgetState();
+  GetAdventureWidgetState createState() => GetAdventureWidgetState();
 }
 
-class _GetAdventureWidgetState extends State<GetAdventureWidget> {
+class GetAdventureWidgetState extends State<GetAdventureWidget> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {

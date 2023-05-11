@@ -11,6 +11,7 @@ import 'package:anime_catalog_app/models/anime_model.dart';
 import 'package:anime_catalog_app/pages/pagination.dart';
 import 'package:anime_catalog_app/providers/anime_get_rank_provider%20copy.dart';
 import 'package:anime_catalog_app/providers/anime_get_romance_provider.dart';
+import 'package:anime_catalog_app/widget/genre_item_widget.dart';
 import 'package:anime_catalog_app/widget/img_widget.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -62,6 +63,87 @@ class Dashboard extends StatelessWidget {
               ),
             ),
             const TopAnimeWidget(),
+            const SliverAppBar(
+              backgroundColor: Colors.transparent,
+              title: Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    'Genre Tag'),
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: Container(
+                margin: EdgeInsetsDirectional.symmetric(horizontal: 10),
+                color: Colors.white10,
+                height: 60,
+                padding: EdgeInsets.symmetric(vertical: 10),
+                width: double.infinity,
+                child: ListView(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    GenreItemWidget(
+                      title: ("Romance"),
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (_) => Pagination(type: typeAnime.romance)));
+                      },
+                    ),
+                    GenreItemWidget(
+                      title: ("Action"),
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (_) => Pagination(type: typeAnime.action)));
+                      },
+                    ),
+                    GenreItemWidget(
+                      title: ("Adventure"),
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (_) => Pagination(type: typeAnime.adventure)));
+                      },
+                    ),
+                    GenreItemWidget(
+                      title: ("Comedy"),
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (_) => Pagination(type: typeAnime.comedy)));
+                      },
+                    ),
+                    GenreItemWidget(
+                      title: ("Drama"),
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (_) => Pagination(type: typeAnime.drama)));
+                      },
+                    ),
+                    GenreItemWidget(
+                      title: ("Sci-Fi"),
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (_) => Pagination(type: typeAnime.scifi)));
+                      },
+                    ),
+                    GenreItemWidget(
+                      title: ("Slice of Life"),
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (_) => Pagination(type: typeAnime.sliceoflife)));
+                      },
+                    ),
+                    GenreItemWidget(
+                      title: ("Sports"),
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (_) => Pagination(type: typeAnime.sport)));
+                      },
+                    ),
+                    GenreItemWidget(
+                      title: ("Supernatural"),
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (_) => Pagination(type: typeAnime.supernatural)));
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            ),
             TitleWidget(
               title: "Romance",
               onPressed: () {
@@ -69,62 +151,6 @@ class Dashboard extends StatelessWidget {
               },
             ),
             const GetRomanceWidget(),
-            TitleWidget(
-              title: "Action",
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (_) => Pagination(type: typeAnime.action)));
-              },
-            ),
-            const GetAdventureWidget(),
-            TitleWidget(
-              title: "Adventure",
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (_) => Pagination(type: typeAnime.adventure)));
-              },
-            ),
-            const GetAdventureWidget(),
-            TitleWidget(
-              title: "Comedy",
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (_) => Pagination(type: typeAnime.comedy)));
-              },
-            ),
-            const GetComedyWidget(),
-            TitleWidget(
-              title: "Drama",
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (_) => Pagination(type: typeAnime.drama)));
-              },
-            ),
-            const GetDramaWidget(),
-            TitleWidget(
-              title: "Sci-Fi",
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (_) => Pagination(type: typeAnime.scifi)));
-              },
-            ),
-            const GetSliceofLifeWidget(),
-            TitleWidget(
-              title: "Slice Of Life",
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (_) => Pagination(type: typeAnime.sliceoflife)));
-              },
-            ),
-            const GetSliceofLifeWidget(),
-            TitleWidget(
-              title: "Sports",
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (_) => Pagination(type: typeAnime.sport)));
-              },
-            ),
-            const GetSportWidget(),
-            TitleWidget(
-              title: "Supernatural",
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (_) => Pagination(type: typeAnime.supernatural)));
-              },
-            ),
-            const GetSupernaturalWidget(),
           ],
         ));
   }

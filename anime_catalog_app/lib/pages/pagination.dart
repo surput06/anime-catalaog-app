@@ -133,7 +133,7 @@ class PaginationState extends State<Pagination> {
               case typeAnime.supernatural:
                 return const Text("Super Natural");
               default:
-                return Text("");
+                return const Text("");
             }
           }),
         ),
