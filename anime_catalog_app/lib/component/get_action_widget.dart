@@ -8,10 +8,10 @@ class GetActionWidget extends StatefulWidget {
   const GetActionWidget({Key? key}) : super(key: key);
 
   @override
-  _GetActionWidgetState createState() => _GetActionWidgetState();
+  GetActionWidgetState createState() => GetActionWidgetState();
 }
 
-class _GetActionWidgetState extends State<GetActionWidget> {
+class GetActionWidgetState extends State<GetActionWidget> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {

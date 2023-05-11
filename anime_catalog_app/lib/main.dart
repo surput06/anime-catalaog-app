@@ -1,6 +1,6 @@
 import 'package:anime_catalog_app/app_constant.dart';
 import 'package:anime_catalog_app/pages/dashboard.dart';
-import 'package:anime_catalog_app/pages/detail_anime.dart';
+
 import 'package:anime_catalog_app/providers/anime_get_action_provider.dart';
 import 'package:anime_catalog_app/providers/anime_get_adventure_provider.dart';
 import 'package:anime_catalog_app/providers/anime_get_comedy_provider.dart';

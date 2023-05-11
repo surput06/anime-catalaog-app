@@ -2,16 +2,15 @@ import 'package:anime_catalog_app/providers/anime_get_scifi_provider.dart';
 import 'package:anime_catalog_app/widget/img_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../providers/anime_get_romance_provider.dart';
 
 class GetScifiWidget extends StatefulWidget {
   const GetScifiWidget({Key? key}) : super(key: key);
 
   @override
-  _GetScifiWidgetState createState() => _GetScifiWidgetState();
+  GetScifiWidgetState createState() => GetScifiWidgetState();
 }
 
-class _GetScifiWidgetState extends State<GetScifiWidget> {
+class GetScifiWidgetState extends State<GetScifiWidget> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {

@@ -2,16 +2,15 @@ import 'package:anime_catalog_app/providers/anime_get_sport_provider.dart';
 import 'package:anime_catalog_app/widget/img_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../providers/anime_get_romance_provider.dart';
 
 class GetSportWidget extends StatefulWidget {
   const GetSportWidget({Key? key}) : super(key: key);
 
   @override
-  _GetSportWidgetState createState() => _GetSportWidgetState();
+  GetSportWidgetState createState() => GetSportWidgetState();
 }
 
-class _GetSportWidgetState extends State<GetSportWidget> {
+class GetSportWidgetState extends State<GetSportWidget> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {

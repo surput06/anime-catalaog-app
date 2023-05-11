@@ -7,10 +7,10 @@ class GetRomanceWidget extends StatefulWidget {
   const GetRomanceWidget({Key? key}) : super(key: key);
 
   @override
-  _GetRomanceWidgetState createState() => _GetRomanceWidgetState();
+  GetRomanceWidgetState createState() => GetRomanceWidgetState();
 }
 
-class _GetRomanceWidgetState extends State<GetRomanceWidget> {
+class GetRomanceWidgetState extends State<GetRomanceWidget> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {

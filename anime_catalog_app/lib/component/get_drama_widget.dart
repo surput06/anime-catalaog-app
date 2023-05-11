@@ -1,18 +1,16 @@
-import 'package:anime_catalog_app/pages/detail_anime.dart';
 import 'package:anime_catalog_app/providers/anime_get_drama_provider.dart';
 import 'package:anime_catalog_app/widget/img_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../providers/anime_get_romance_provider.dart';
 
 class GetDramaWidget extends StatefulWidget {
   const GetDramaWidget({Key? key}) : super(key: key);
 
   @override
-  _GetDramaWidgetState createState() => _GetDramaWidgetState();
+  GetDramaWidgetState createState() => GetDramaWidgetState();
 }
 
-class _GetDramaWidgetState extends State<GetDramaWidget> {
+class GetDramaWidgetState extends State<GetDramaWidget> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {

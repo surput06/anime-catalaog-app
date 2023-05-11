@@ -2,16 +2,15 @@ import 'package:anime_catalog_app/providers/anime_get_sliceoflife_provider.dart'
 import 'package:anime_catalog_app/widget/img_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../providers/anime_get_romance_provider.dart';
 
 class GetSliceofLifeWidget extends StatefulWidget {
   const GetSliceofLifeWidget({Key? key}) : super(key: key);
 
   @override
-  _GetSliceofLifeWidgetState createState() => _GetSliceofLifeWidgetState();
+  GetSliceofLifeWidgetState createState() => GetSliceofLifeWidgetState();
 }
 
-class _GetSliceofLifeWidgetState extends State<GetSliceofLifeWidget> {
+class GetSliceofLifeWidgetState extends State<GetSliceofLifeWidget> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {

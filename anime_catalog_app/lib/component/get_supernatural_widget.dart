@@ -2,16 +2,15 @@ import 'package:anime_catalog_app/providers/anime_get_supernatural.dart';
 import 'package:anime_catalog_app/widget/img_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../providers/anime_get_romance_provider.dart';
 
 class GetSupernaturalWidget extends StatefulWidget {
   const GetSupernaturalWidget({Key? key}) : super(key: key);
 
   @override
-  _GetSupernaturalWidgetState createState() => _GetSupernaturalWidgetState();
+  GetSupernaturalWidgetState createState() => GetSupernaturalWidgetState();
 }
 
-class _GetSupernaturalWidgetState extends State<GetSupernaturalWidget> {
+class GetSupernaturalWidgetState extends State<GetSupernaturalWidget> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
