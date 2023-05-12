@@ -8,6 +8,7 @@ import 'package:anime_catalog_app/providers/anime_get_drama_provider.dart';
 import 'package:anime_catalog_app/providers/anime_get_rank_provider.dart';
 import 'package:anime_catalog_app/providers/anime_get_romance_provider.dart';
 import 'package:anime_catalog_app/providers/anime_get_scifi_provider.dart';
+import 'package:anime_catalog_app/providers/anime_get_search_provider.dart';
 import 'package:anime_catalog_app/providers/anime_get_sliceoflife_provider.dart';
 import 'package:anime_catalog_app/providers/anime_get_sport_provider.dart';
 import 'package:anime_catalog_app/providers/anime_get_supernatural.dart';
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => sl<AnimeGetSportsProvider>()),
         ChangeNotifierProvider(create: (_) => sl<AnimeGetSupernaturalProvider>()),
         ChangeNotifierProvider(create: (_) => sl<AnimeGetAdventureProvider>()),
+        ChangeNotifierProvider(create: (_) => sl<GetSearchProvider>()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

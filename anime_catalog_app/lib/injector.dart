@@ -6,6 +6,7 @@ import 'package:anime_catalog_app/providers/anime_get_drama_provider.dart';
 import 'package:anime_catalog_app/providers/anime_get_rank_provider.dart';
 import 'package:anime_catalog_app/providers/anime_get_romance_provider.dart';
 import 'package:anime_catalog_app/providers/anime_get_scifi_provider.dart';
+import 'package:anime_catalog_app/providers/anime_get_search_provider.dart';
 import 'package:anime_catalog_app/providers/anime_get_sliceoflife_provider.dart';
 import 'package:anime_catalog_app/providers/anime_get_sport_provider.dart';
 import 'package:anime_catalog_app/providers/anime_get_supernatural.dart';
@@ -30,6 +31,7 @@ void setup() {
   sl.registerFactory<AnimeGetSportsProvider>(() => AnimeGetSportsProvider(sl()));
   sl.registerFactory<AnimeGetSupernaturalProvider>(() => AnimeGetSupernaturalProvider(sl()));
   sl.registerFactory<AnimeGetAnimeDetailProvider>(() => AnimeGetAnimeDetailProvider(sl()));
+  sl.registerFactory<GetSearchProvider>(() => GetSearchProvider(sl()));
 
   sl.registerLazySingleton<AnimeRepostories>(() => AnimeRepostoriesImpl(sl()));
 

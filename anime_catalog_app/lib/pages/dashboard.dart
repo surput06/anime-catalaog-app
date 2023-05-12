@@ -1,6 +1,7 @@
 import 'package:anime_catalog_app/component/genre_tag_widget.dart';
 import 'package:anime_catalog_app/component/get_romance_widget.dart';
 import 'package:anime_catalog_app/pages/pagination.dart';
+import 'package:anime_catalog_app/pages/search_page.dart';
 import 'package:flutter/material.dart';
 
 import '../component/top_anime_widget.dart';
@@ -25,7 +26,9 @@ class Dashboard extends StatelessWidget {
           ),
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                showSearch(context: context, delegate: SearchPage());
+              },
               icon: const Padding(
                 padding: EdgeInsets.only(right: 10),
                 child: Icon(Icons.search, size: 30.0),

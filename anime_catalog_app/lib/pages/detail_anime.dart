@@ -9,7 +9,6 @@ class DetailAnime extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return ChangeNotifierProvider(
       create: (_) => sl<AnimeGetAnimeDetailProvider>()..getDetail(context, id: id),
       builder: (_, __) => Scaffold(
@@ -58,7 +57,7 @@ class DetailAnime extends StatelessWidget {
                             const Padding(padding: EdgeInsets.all(2)),
                             Row(
                               children: [
-                                Container(
+                                SizedBox(
                                   width: 350,
                                   child: Padding(
                                     padding: const EdgeInsets.only(left: 5),
