@@ -150,11 +150,18 @@ class PaginationState extends State<Pagination> {
           builderDelegate: PagedChildBuilderDelegate<AnimeModel>(
               itemBuilder: (context, anime, index) => ItemAnime(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(
-                        builder: (_) {
+                      Navigator.of(context).push(
+                        PageRouteBuilder(pageBuilder: (context, animation, secondaryAnimation) {
                           return DetailAnime(id: anime.id);
-                        },
-                      ));
+                        }, transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                          final tween = Tween(begin: const Offset(1, 0), end: Offset.zero);
+
+                          return SlideTransition(
+                            position: animation.drive(tween),
+                            child: child,
+                          );
+                        }),
+                      );
                     },
                     anime: anime,
                     height: 350,
