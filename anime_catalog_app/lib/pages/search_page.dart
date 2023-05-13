@@ -90,6 +90,6 @@ class SearchPage extends SearchDelegate {
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    return Text("data");
+    return const Text("data");
   }
 }
