@@ -1,7 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.anime_catalog_app">
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="anime_catalog_app"
+        android:label="Anime Catalog App"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity
